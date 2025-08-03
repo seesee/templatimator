@@ -1,0 +1,52 @@
+{
+  "name": "templatimator",
+  "version": "1.0.0",
+  "description": "A PWA that provides a quick way of taking a text outline, applying a bunch of variables to it and outputting as text/html/csv etc.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm-run-all build:js build:css build:html build:assets minify:html",
+    "build:standalone": "node scripts/build-standalone.js",
+    "build:all": "npm-run-all build build:standalone",
+    "build:js": "esbuild src/app.js --bundle --minify --outfile=dist/app.js",
+    "build:css": "esbuild src/style.css --minify --outfile=dist/style.css",
+    "build:html": "cp src/index.html dist/index.html",
+    "build:assets": "cp assets/favicon.svg assets/favicon.ico dist/",
+    "minify:html": "node scripts/minify-html.js",
+    "watch:js": "esbuild src/app.js --bundle --minify --outfile=dist/app.js --watch",
+    "watch:css": "esbuild src/style.css --minify --outfile=dist/style.css --watch",
+    "watch:html": "nodemon --watch src/index.html --exec \"npm run build:html\"",
+    "watch:assets": "nodemon --watch assets --exec \"npm run build:assets\"",
+    "watch:build": "concurrently \"npm:watch:js\" \"npm:watch:css\" \"npm:watch:html\" \"npm:watch:assets\"",
+    "generate:favicon": "node scripts/create-ico.js",
+    "dev": "concurrently \"npm run watch:build\" \"nodemon --watch dist --exec 'npm start'\"",
+    "start": "serve dist -p 8001",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seesee/templatimator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/seesee/templatimator/issues"
+  },
+  "homepage": "https://github.com/seesee/templatimator#readme",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "concurrently": "^9.2.0",
+    "esbuild": "^0.25.8",
+    "html-minifier-terser": "^7.2.0",
+    "jest": "^30.0.5",
+    "jest-environment-jsdom": "^30.0.5",
+    "jsdom": "^26.1.0",
+    "nodemon": "^3.1.10",
+    "npm-run-all": "^4.1.5",
+    "serve": "^14.2.4",
+    "terser": "^5.43.1"
+  }
+}

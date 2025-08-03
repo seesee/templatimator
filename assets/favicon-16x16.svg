@@ -1,0 +1,20 @@
+<svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="32" height="32" rx="4" fill="#2d7ff9"/>
+  
+  <!-- Template icon - document with template brackets -->
+  <rect x="6" y="5" width="20" height="22" rx="2" fill="white"/>
+  <rect x="8" y="7" width="16" height="18" fill="#f8f9fa"/>
+  
+  <!-- Template syntax symbols -->
+  <!-- {{ symbol on left -->
+  <path d="M10 12 L10 14 L12 14 L12 16 L10 16 L10 18" stroke="#2d7ff9" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M11 12 L11 14 L13 14 L13 16 L11 16 L11 18" stroke="#2d7ff9" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- }} symbol on right -->
+  <path d="M22 12 L22 14 L20 14 L20 16 L22 16 L22 18" stroke="#2d7ff9" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M21 12 L21 14 L19 14 L19 16 L21 16 L21 18" stroke="#2d7ff9" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Variable placeholder -->
+  <rect x="14" y="13.5" width="4" height="3" rx="1" fill="#94a3b8"/>
+</svg>

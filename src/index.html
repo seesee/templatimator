@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Templatimator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Templatimator</h1>
+    <div class="flex">
+      <!-- Templates Column -->
+      <div class="col">
+        <label>Templates</label>
+        <ul id="templateList" class="list"></ul>
+        <div class="row">
+          <input id="templateName" placeholder="Template name" />
+          <button class="btn" onclick="saveTemplate()">Save</button>
+        </div>
+        <textarea id="templateInput" placeholder="Enter template here..."></textarea>
+      </div>
+      <!-- KVPs Column -->
+      <div class="col">
+        <label>Key-Value Pairs (JSON or YAML)</label>
+        <ul id="kvpList" class="list"></ul>
+        <div class="row">
+          <input id="kvpName" placeholder="KVP set name" />
+          <button class="btn" onclick="saveKVP()">Save</button>
+        </div>
+        <textarea id="kvpInput" placeholder='{"name": "Chris", "items": ["apple", "banana"]}'></textarea>
+      </div>
+      <!-- CSS Column -->
+      <div class="col">
+        <label>Custom CSS (for output)</label>
+        <ul id="cssList" class="list"></ul>
+        <div class="row">
+          <input id="cssName" placeholder="CSS set name" />
+          <button class="btn" onclick="saveCSS()">Save</button>
+        </div>
+        <textarea id="cssInput" placeholder="Enter CSS rules here..."></textarea>
+      </div>
+    </div>
+    <div class="output-controls">
+      <label for="formatSelect">Output as:</label>
+      <select id="formatSelect">
+        <option value="html">HTML</option>
+        <option value="markdown">Markdown</option>
+        <option value="csv">CSV</option>
+        <option value="txt">Plain Text</option>
+        <option value="pdf">PDF</option>
+      </select>
+      <button class="btn" onclick="renderOutput()">Render</button>
+      <button class="btn secondary" id="copyBtn" onclick="copyOutput()">Copy Output</button>
+      <button class="btn secondary" onclick="downloadOutput()">Download</button>
+    </div>
+    <div id="output" class="output-area"></div>
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-info">
+          <span class="app-name">Templatimator</span>
+          <span class="copyright">&copy; <span id="copyright-year">2025</span> <a href="https://github.com/seesee" target="_blank" rel="noopener noreferrer" class="author-link">Chris Carline</a></span>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/seesee/templatimator" target="_blank" rel="noopener noreferrer" class="github-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+            </svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
