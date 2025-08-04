@@ -101,4 +101,4 @@ const icoFile = Buffer.concat([
 
 // Write the ICO file
 fs.writeFileSync('assets/favicon.ico', icoFile);
-console.log('✓ Created assets/favicon.ico (16x16 ICO file)');
+console.log('Created assets/favicon.ico (16x16 ICO file)');

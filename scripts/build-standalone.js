@@ -13,7 +13,7 @@ async function buildStandalone() {
   const jsContent = fs.readFileSync('src/app.js', 'utf8');
   const cssContent = fs.readFileSync('src/style.css', 'utf8');
 
-  console.log('✓ Read source files');
+  console.log('Read source files');
 
   // Minify JavaScript
   const minifiedJS = await minifyJS(jsContent, {
@@ -35,7 +35,7 @@ async function buildStandalone() {
     throw new Error('JavaScript minification failed: ' + minifiedJS.error);
   }
 
-  console.log(`✓ Minified JavaScript (${jsContent.length} → ${minifiedJS.code.length} bytes)`);
+  console.log(`Minified JavaScript (${jsContent.length} → ${minifiedJS.code.length} bytes)`);
 
   // Minify CSS
   const minifiedCSS = new CleanCSS({
@@ -47,7 +47,7 @@ async function buildStandalone() {
     throw new Error('CSS minification failed: ' + minifiedCSS.errors.join(', '));
   }
 
-  console.log(`✓ Minified CSS (${cssContent.length} → ${minifiedCSS.styles.length} bytes)`);
+  console.log(`Minified CSS (${cssContent.length} → ${minifiedCSS.styles.length} bytes)`);
 
   // Create self-contained HTML
   let standaloneHTML = htmlContent;
@@ -70,7 +70,7 @@ async function buildStandalone() {
     `<script>${minifiedJS.code}</script></body>`
   );
 
-  console.log('✓ Inlined CSS and JavaScript');
+  console.log('Inlined CSS and JavaScript');
 
   // Minify the final HTML
   const finalHTML = await minifyHTML(standaloneHTML, {
@@ -88,7 +88,7 @@ async function buildStandalone() {
     minifyURLs: true,
   });
 
-  console.log(`✓ Minified final HTML (${standaloneHTML.length} → ${finalHTML.length} bytes)`);
+  console.log(`Minified final HTML (${standaloneHTML.length} → ${finalHTML.length} bytes)`);
 
   // Ensure dist directory exists
   if (!fs.existsSync('dist')) {
@@ -98,7 +98,7 @@ async function buildStandalone() {
   // Write the standalone file
   fs.writeFileSync('dist/templatimator-standalone.html', finalHTML);
 
-  console.log('✓ Created dist/templatimator-standalone.html');
+  console.log('Created dist/templatimator-standalone.html');
   console.log(`\nStandalone file size: ${Math.round(finalHTML.length / 1024)}KB`);
   console.log('This file can be opened directly in any web browser and requires no server or external files.');
 }

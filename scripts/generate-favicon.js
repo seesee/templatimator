@@ -33,8 +33,8 @@ const faviconSvg = `<svg width="16" height="16" viewBox="0 0 32 32" xmlns="http:
 // Write the 16x16 version for favicon
 fs.writeFileSync('assets/favicon-16x16.svg', faviconSvg);
 
-console.log('✓ Created assets/favicon.svg (32x32 source)');
-console.log('✓ Created assets/favicon-16x16.svg (16x16 favicon)');
+console.log('Created assets/favicon.svg (32x32 source)');
+console.log('Created assets/favicon-16x16.svg (16x16 favicon)');
 console.log('\nTo generate ICO file, you can:');
 console.log('1. Use online converter: https://convertio.co/svg-ico/');
 console.log('2. Use ImageMagick: convert assets/favicon.svg -resize 16x16 dist/favicon.ico');
